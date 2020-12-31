@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Switch, Route } from 'react-router-dom';
+import { Navigation } from './components/Navigation/Navigation';
 
 function App() {
     require('dotenv').config();
@@ -14,6 +15,7 @@ function App() {
                 path="/"
                 render={() => (
                     <div className="App">
+                        <Navigation></Navigation>
                         <header className="App-header">
                             <img src={logo} className="App-logo" alt="logo" />
                             <p>
