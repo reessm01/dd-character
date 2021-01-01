@@ -33,7 +33,11 @@ export function SearchableInput<SuggestionShape, RawDataShape>({
     };
 
     const renderSuggestion = (suggestion: SuggestionShape) => {
-        return <div onClick={() => handleSelect(suggestion)}>{suggestion[suggestionKey as keyof SuggestionShape]}</div>;
+        return (
+            <div onClick={() => handleSelect(suggestion)} onTouchEnd={() => handleSelect(suggestion)}>
+                {suggestion[suggestionKey as keyof SuggestionShape]}
+            </div>
+        );
     };
 
     const inputProps = {

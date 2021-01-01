@@ -1,6 +1,8 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Spell } from '../../interfaces';
+import { ExpandoCardText } from '..';
+import ordinal from 'ordinal';
 
 export interface SpellCardParams {
     spell: Spell;
@@ -8,16 +10,19 @@ export interface SpellCardParams {
 
 export function SpellCard({ spell }: SpellCardParams) {
     const conditionalDisplay = spell ? 'd-block' : 'd-none';
+    const firstEntry = spell?.desc[0] || '';
+    const text = spell?.desc.slice(1) || [];
+    const spellRitual = spell && spell.ritual ? ' (ritual)' : '';
+    const spellCategory = spell ? `${ordinal(spell?.level)}-level ${spell.school.name}${spellRitual}` : '';
 
     return (
-        <Card className={`${conditionalDisplay} mx-3`}>
+        <Card className={`${conditionalDisplay} mx-3 mt-2 w-100`}>
             {conditionalDisplay === 'd-block' && (
                 <Card.Body>
                     <Card.Title>{spell?.name || ''}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">{spell.school?.name || ''}</Card.Subtitle>
-                    {spell.desc?.map((entry) => (
-                        <Card.Text className="text-justify">{entry}</Card.Text>
-                    ))}
+                    <Card.Subtitle className="mb-2 text-muted">{spellCategory}</Card.Subtitle>
+                    <Card.Text className="text-justify">{firstEntry}</Card.Text>
+                    {text.length ? <ExpandoCardText text={text} /> : null}
                 </Card.Body>
             )}
         </Card>
