@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 export const history = createBrowserHistory();
 
-export default function configureStore(preloadedState?: any) {
+export function configureStore(preloadedState?: any) {
     return createStore(
         // @ts-ignore
         createRootReducer(history), // root reducer with router state
