@@ -1,28 +1,22 @@
 import { useEffect, useState } from 'react';
-import { getEnvironmentDetails } from '../helpers';
-import { SpellList } from '../interfaces';
+import { Dnd5eApiPreview, CommonFetchHookInputs } from '../interfaces';
+import { Dnd5eApiClient } from '../services';
 
 export function useSpellList() {
-    const [spellList, setSpellList] = useState([] as SpellList[]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState('');
-    const spells = '/api/spells';
+    const [spellList, setSpellList] = useState<Dnd5eApiPreview[]>([]);
+    const [isSpellListLoading, setIsLoading] = useState(false);
+    const [spellListError, setError] = useState('');
+    const apiClient = new Dnd5eApiClient();
 
     useEffect(() => {
-        const baseApiUrl = getEnvironmentDetails().dd5eApi;
         setIsLoading(true);
-        fetch(`${baseApiUrl}${spells}`)
-            .then((res) => res.json())
-            .then((data: { count: number; results: SpellList[] }) => {
-                setSpellList(data.results);
-            })
-            .catch((error) => {
-                setError(error.message);
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
+        const params: CommonFetchHookInputs = {
+            setIsLoading,
+            setError,
+            setData: setSpellList,
+        };
+        apiClient.getSpellList(params);
     }, []);
 
-    return { spellList, isLoading, error };
+    return { spellList, isSpellListLoading, spellListError };
 }
