@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Spell } from '../../interfaces';
-import { ExpandoCardText } from '..';
+import { ExpandoCardText, SpellRequirements } from '..';
 import ordinal from 'ordinal';
 
 export interface SpellCardParams {
@@ -21,6 +21,13 @@ export function SpellCard({ spell }: SpellCardParams) {
                 <Card.Body>
                     <Card.Title>{spell?.name || ''}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">{spellCategory}</Card.Subtitle>
+                    <SpellRequirements
+                        castingTime={spell?.casting_time || ''}
+                        range={spell?.range || ''}
+                        components={spell?.components || []}
+                        duration={spell?.duration || ''}
+                        school={spell?.school.name || ''}
+                    />
                     <Card.Text className="text-justify">{firstEntry}</Card.Text>
                     {text.length ? <ExpandoCardText text={text} /> : null}
                 </Card.Body>

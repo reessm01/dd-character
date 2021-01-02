@@ -5,3 +5,4 @@ export * from './Spell';
 export * from './Damage';
 export * from './CommonFetchHookInputs';
 export * from './GraphqlLikeResponse';
+export * from './Icon';
