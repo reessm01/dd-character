@@ -4,9 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import configureStore, { history } from './configureStore';
-import { ConnectedRouter } from 'connected-react-router';
-import { Route } from 'react-router-dom';
+// @ts-ignore
+import { configureStore, history } from './configureStore';
+import { HashRouter, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 export const store = configureStore();
@@ -16,13 +16,11 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-    <ApolloProvider client={client}>
-        <Provider store={store}>
-            <ConnectedRouter history={history}>
-                <Route component={App} />
-            </ConnectedRouter>
-        </Provider>
-    </ApolloProvider>,
+    <Provider store={store}>
+        <HashRouter>
+            <Route component={App} />
+        </HashRouter>
+    </Provider>,
     document.getElementById('root')
 );
 
