@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/dd-character-sheet/static/css/main.ec825db1.chunk.css",
-    "main.js": "/dd-character-sheet/static/js/main.f26fe905.chunk.js",
-    "main.js.map": "/dd-character-sheet/static/js/main.f26fe905.chunk.js.map",
-    "runtime-main.js": "/dd-character-sheet/static/js/runtime-main.3db267be.js",
-    "runtime-main.js.map": "/dd-character-sheet/static/js/runtime-main.3db267be.js.map",
+    "main.js": "/dd-character-sheet/static/js/main.a236cba7.chunk.js",
+    "main.js.map": "/dd-character-sheet/static/js/main.a236cba7.chunk.js.map",
+    "runtime-main.js": "/dd-character-sheet/static/js/runtime-main.045aae31.js",
+    "runtime-main.js.map": "/dd-character-sheet/static/js/runtime-main.045aae31.js.map",
     "static/css/2.20aa2d7b.chunk.css": "/dd-character-sheet/static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.1db525bc.chunk.js": "/dd-character-sheet/static/js/2.1db525bc.chunk.js",
-    "static/js/2.1db525bc.chunk.js.map": "/dd-character-sheet/static/js/2.1db525bc.chunk.js.map",
-    "static/js/3.abf0d0ed.chunk.js": "/dd-character-sheet/static/js/3.abf0d0ed.chunk.js",
-    "static/js/3.abf0d0ed.chunk.js.map": "/dd-character-sheet/static/js/3.abf0d0ed.chunk.js.map",
+    "static/js/2.d2bd40d6.chunk.js": "/dd-character-sheet/static/js/2.d2bd40d6.chunk.js",
+    "static/js/2.d2bd40d6.chunk.js.map": "/dd-character-sheet/static/js/2.d2bd40d6.chunk.js.map",
+    "static/js/3.1f2e86b6.chunk.js": "/dd-character-sheet/static/js/3.1f2e86b6.chunk.js",
+    "static/js/3.1f2e86b6.chunk.js.map": "/dd-character-sheet/static/js/3.1f2e86b6.chunk.js.map",
     "index.html": "/dd-character-sheet/index.html",
     "static/css/2.20aa2d7b.chunk.css.map": "/dd-character-sheet/static/css/2.20aa2d7b.chunk.css.map",
     "static/css/main.ec825db1.chunk.css.map": "/dd-character-sheet/static/css/main.ec825db1.chunk.css.map",
-    "static/js/2.1db525bc.chunk.js.LICENSE.txt": "/dd-character-sheet/static/js/2.1db525bc.chunk.js.LICENSE.txt",
+    "static/js/2.d2bd40d6.chunk.js.LICENSE.txt": "/dd-character-sheet/static/js/2.d2bd40d6.chunk.js.LICENSE.txt",
     "static/media/logo.6ce24c58.svg": "/dd-character-sheet/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.3db267be.js",
+    "static/js/runtime-main.045aae31.js",
     "static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.1db525bc.chunk.js",
+    "static/js/2.d2bd40d6.chunk.js",
     "static/css/main.ec825db1.chunk.css",
-    "static/js/main.f26fe905.chunk.js"
+    "static/js/main.a236cba7.chunk.js"
   ]
 }
