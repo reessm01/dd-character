@@ -1,19 +1,34 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Card } from 'react-bootstrap';
-import { Spell } from '../../interfaces';
+import { Dnd5eApiPreview, Spell } from '../../interfaces';
 import { ExpandoCardText, SpellRequirements } from '..';
 import ordinal from 'ordinal';
+import { TextFormatClient } from '../../services';
 
 export interface SpellCardParams {
     spell: Spell;
+    spellSelected: Dnd5eApiPreview;
 }
 
-export function SpellCard({ spell }: SpellCardParams) {
+function determineSpellLevel(spell: Spell): string {
+    if (spell) {
+        if (spell.level > 0) {
+            return `${ordinal(spell?.level)}-level`;
+        }
+        return 'Cantrip';
+    }
+
+    return '';
+}
+
+export function SpellCard({ spell, spellSelected }: SpellCardParams) {
+    const textClient = new TextFormatClient();
     const conditionalDisplay = spell ? 'd-block' : 'd-none';
-    const firstEntry = spell?.desc[0] || '';
-    const text = spell?.desc.slice(1) || [];
+    const processedText: ReactElement[] = spell?.desc.map((textEntry) => textClient.processText(textEntry)) || [];
+    const firstEntry = processedText?.shift() || '';
     const spellRitual = spell && spell.ritual ? ' (ritual)' : '';
-    const spellCategory = spell ? `${ordinal(spell?.level)}-level ${spell.school.name}${spellRitual}` : '';
+    const spellLevel = determineSpellLevel(spell);
+    const spellCategory = spell ? `${spellLevel} ${spell.school.name}${spellRitual}` : '';
 
     return (
         <Card className={`${conditionalDisplay} mx-3 mt-2 w-100`}>
@@ -29,7 +44,7 @@ export function SpellCard({ spell }: SpellCardParams) {
                         school={spell?.school.name || ''}
                     />
                     <Card.Text className="text-justify">{firstEntry}</Card.Text>
-                    {text.length ? <ExpandoCardText text={text} /> : null}
+                    {processedText.length ? <ExpandoCardText handleSelected={spellSelected} text={processedText} /> : null}
                 </Card.Body>
             )}
         </Card>
