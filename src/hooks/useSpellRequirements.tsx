@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { ISpellRequirements } from '../components';
-import { getIcon } from '../helpers';
 
 export interface ContentDetails extends ISpellRequirements {
     imageUrl: string;
@@ -21,7 +20,7 @@ export function useSpellRequirements(params: ISpellRequirements): ContentDetails
             setComponents(params.components);
             setDuration(params.duration);
             setSchool(params.school);
-            setImageUrl(getIcon(params.school.toLowerCase()));
+            setImageUrl('');
         }
     }, [params]);
 
