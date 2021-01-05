@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
-import './ExpandoCardText.scss';
-import { Button, Card, Collapse } from 'react-bootstrap';
+import React, { ReactElement, useEffect, useState } from 'react';
+import { Card, Collapse } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
 
-export interface IExpandoCardText {
-    text: string[];
+export interface IExpandoCardText<SelectedDataShape> {
+    text: ReactElement[];
+    handleSelected: SelectedDataShape;
 }
 
-export function ExpandoCardText({ text }: IExpandoCardText) {
+export function ExpandoCardText<SelectedDataShape>({ text, handleSelected }: IExpandoCardText<SelectedDataShape>) {
     const [open, setOpen] = useState(false);
-    const expandableTextEntry = (textEntry: string) => (
+
+    useEffect(() => {
+        setOpen(false);
+    }, [handleSelected]);
+
+    const expandableTextEntry = (textEntry: ReactElement) => (
         <Card.Text className="text-justify" key={uuidv4()}>
             {textEntry}
         </Card.Text>
@@ -24,14 +29,14 @@ export function ExpandoCardText({ text }: IExpandoCardText) {
                 </div>
             </Collapse>
             <div className="d-flex justify-content-end">
-                <a
-                    className="text-justify mt-3 text-muted cursor-hover"
+                <button
+                    className="text-justify mt-3 text-muted anchorButton cursorHover"
                     onClick={() => setOpen(!open)}
                     aria-controls="example-collapse-text"
                     aria-expanded={open}
                 >
-                    {open ? 'Hide' : 'Read more'}
-                </a>
+                    <span>{open ? 'Hide' : 'Read more'}</span>
+                </button>
             </div>
         </>
     );
