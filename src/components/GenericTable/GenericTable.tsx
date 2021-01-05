@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
-import { Image, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import * as changeCase from 'change-case';
+import { v4 as uuidv4 } from 'uuid';
 
 export interface IGenericTable {
     headings: string[];
@@ -14,13 +15,8 @@ export interface Content {
 }
 
 export function GenericTable(params: IGenericTable) {
-    const headings = params.headings.map((entry) => <th>{changeCase.capitalCase(entry)}</th>);
-    const standardContent = params.tableContent.map((content) => (
-        <td>
-            <Image src={content.imageUrl} />
-            {content.text}
-        </td>
-    ));
+    const headings = params.headings.map((entry) => <th key={uuidv4()}>{changeCase.capitalCase(entry)}</th>);
+    const standardContent = params.tableContent.map((content) => <td key={uuidv4()}>{content.text}</td>);
     return (
         <Table bordered striped>
             <thead>
