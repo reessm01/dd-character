@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Content, GenericTable } from '..';
 import { ContentDetails, useSpellRequirements } from '../../hooks/useSpellRequirements';
 
@@ -12,7 +12,7 @@ export interface ISpellRequirements {
 
 export function SpellRequirements(params: ISpellRequirements) {
     const contentDetails = useSpellRequirements(params);
-    const tableHeadings = Object.keys(params);
+    const tableHeadings = ['Casting Time', 'Components', 'Duration', 'Range', 'School'];
     const tableContent: Content[] = mapToContent(contentDetails);
 
     return <GenericTable headings={tableHeadings} tableContent={tableContent} />;
@@ -34,7 +34,6 @@ const mapToContent = (params: ContentDetails): Content[] => {
         },
         {
             text: params.school,
-            imageUrl: params.imageUrl,
         },
     ];
 };
