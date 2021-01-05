@@ -46,7 +46,6 @@ export function GenericSearchPage() {
                                 <Spinner animation="border" role="status" className="mt-3 mr-3">
                                     <span className="sr-only">Loading...</span>
                                 </Spinner>
-                                <span>Loading details...</span>
                             </>
                         ))}
                 </Col>
