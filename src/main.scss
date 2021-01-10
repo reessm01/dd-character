@@ -1,3 +1,18 @@
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+$theme-colors: (
+    'evocation': #d9ffcc,
+    'illusion': #ffffcc,
+    'necromancy': #ffcccc,
+    'enchantment': #ffebcc,
+    'divination': #ebccff,
+    'transmutation': #ffccff,
+    'conjuration': #ccffff,
+    'abjuration': #ccebff,
+);
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+
 .anchorButton {
     background: none !important;
     border: none;

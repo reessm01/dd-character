@@ -1,6 +1,6 @@
 import React from 'react';
 import { Content, GenericTable } from '..';
-import { ContentDetails, useSpellRequirements } from '../../hooks/useSpellRequirements';
+import { ContentDetails, useSpellRequirements } from '../../hooks';
 
 export interface ISpellRequirements {
     castingTime: string;
